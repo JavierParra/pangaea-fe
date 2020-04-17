@@ -1,0 +1,153 @@
+@import "partials/_mixins.scss";
+@import "partials/_variables.scss";
+@import "partials/_cart.scss";
+@import "partials/_list.scss";
+
+html, body {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	color: $black;
+	font-family: Helvetica, Arial;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+ul, ol, li {
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3, h4 {
+	margin: 0;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+body {
+	background: $offwhite;
+	min-height: 100%;
+}
+
+header {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	padding: 1em 2em;
+	border-bottom: 1px solid $gray;
+	margin-bottom: 1em;
+
+	.actions {
+		display: flex;
+		align-items: center;
+	}
+}
+
+.cartIcon {
+	border: none;
+	background: transparent;
+	position: relative;
+	color: $black;
+	padding: .5em;
+
+	img {
+		width: 28px;
+		margin-right: .5em;
+	}
+
+	.badge {
+		font-size: 1.3em;
+		position: absolute;
+		top: -.5em;
+		right: 0;
+	}
+}
+
+select {
+	border: 1px solid $gray;
+	display: inline-block;
+	padding: .5em 2.5em .5em 1em;
+	border-radius: 0px;
+	appearance: none;
+	background: white no-repeat url('../img/chevron.png') center right .5em;
+	background-size: 1em 1em;
+}
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 100%;
+	width: 100vw;
+	height: 100vh;
+	z-index: 10;
+	transition: left 0s .3s;
+
+	.bg {
+		position: absolute;
+		top: 0;
+		left: 100%;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		background: rgba($black, .8);
+		transition: left .2s .1s;
+	}
+
+	.fg {
+		height: 100%;
+		width: 45%;
+		right: -45%;
+		position: absolute;
+		background: $gray;
+		z-index: 2;
+		transition: right .2s;
+		box-shadow: -6px -15px 15px rgba($black, .7);
+
+		@include respond-to(small) {
+			width: 80%;
+			right: -80%;
+		}
+	}
+
+	&.open {
+		transition: left 0s 0s;
+		left: 0;
+
+		.bg {
+			left: 0;
+		}
+
+		.fg {
+			right: 0;
+		}
+	}
+
+}
+
+button {
+	background: $green;
+	padding: 1.5em 1em;
+	color: $offwhite;
+	text-transform: uppercase;
+}
+
+.error {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #ee3333;
+	color: darken(#ee3333, 30);
+	text-shadow: 1px 1px 0 lighten(#ee3333, 30);
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	strong {
+		font-size: 5em;
+	}
+}

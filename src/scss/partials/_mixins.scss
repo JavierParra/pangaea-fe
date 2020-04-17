@@ -1,0 +1,12 @@
+@import "_variables.scss";
+
+@mixin respond-to($size) {
+	@if $size == large {
+		@media only screen and (min-width: $small) { @content; }
+	}
+
+	@else if $size == small {
+		@media only screen and (max-width: $small) { @content; }
+	}
+
+}

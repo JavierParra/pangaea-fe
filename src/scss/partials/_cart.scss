@@ -1,0 +1,105 @@
+.shoppingCart {
+	padding: 1em 2em;
+
+	h2 {
+		font-size: 1.2rem;
+		width: 100%;
+		text-align: center;
+		font-weight: normal;
+		margin: 0;
+	}
+
+	> div {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+
+		> * {
+			flex: 0 0 auto;
+		}
+
+		> .cartList {
+			flex: 1 0 auto;
+			overflow: auto;
+			// Hack to get scrollable flex cell
+			max-height: calc(100% - 10em);
+		}
+	}
+
+	.cartItem {
+		background: $offwhite;
+		width: 100%;
+		list-style: none;
+		padding: .5em 1em;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		align-items: center;
+		margin: 1em 0;
+
+		p {
+			flex: 1 0 100%;
+			font-weight: bold;
+		}
+
+		img {
+			max-width: 50px;
+			max-height: 50px;
+		}
+
+		.total {
+			flex: 1 0 100%;
+			text-align: left;
+			margin-top: .5em;
+		}
+	}
+
+	.subtotal {
+		border-top: 1px solid $black;
+		padding-top: 1em;
+		margin-top: 1em;
+		display: flex;
+
+		span {
+			flex: 1 1 auto;
+		}
+
+		.amount {
+			text-align: right;
+			font-weight: bold;
+		}
+	}
+}
+
+.quantityEditor {
+	background: transparent;
+	display: inline-flex;
+	align-items: center;
+	border: 1px solid $gray;
+	padding: 0;
+
+	button {
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		color: $black;
+		padding: 1em;
+
+		&:focus {
+			outline: 0;
+			text-decoration: underline;
+		}
+	}
+
+	.increment {
+		padding-left: 1em;
+	}
+
+	.decrement {
+		padding-right: 1em;
+	}
+
+	span {
+		margin: .5em 0;
+	}
+}
